@@ -1,3 +1,7 @@
+.idea
+.vscode
+.code
+
 # Compiled class file
 *.class
 
@@ -9,6 +13,14 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+# Maven
+log/
+target/
+**/target/
+
+# Mac
+.DS_Store
 
 # Package Files #
 *.jar
@@ -22,3 +34,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+keystore.*
+
+# Compiled Files
+*.class
+bin/
+build/
+/bin1/
+java/build/**
