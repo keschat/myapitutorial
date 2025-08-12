@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+database:
+  driver: org.h2.Driver
+  pool:
+    maxSize: 10
+    minSize: 2
+
+logging:
+  level: INFO
+  pattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+app:
+  name: "RapidApi Tutorial"
+  version: "1.0.0-SNAPSHOT"
+  description: "This is a tutorial application for RapidApi"
+  author: "RapidApi"
+  email: "rapidapi@rapidapi.com"
+  url: "https://rapidapi.com"
+  contact: "https://rapidapi.com"
+  license: "Apache 2.0"
+  copyright: "Copyright 2021 RapidApi"
+  termsOfService: "https://rapidapi.com/terms-of-service"
+  privacyPolicy: "https://rapidapi.com/privacy-policy"
+  support: "https://rapidapi.com/support"
+  documentation: "https://rapidapi.com/docs"
+  faq: "https://rapidapi.com/faq"
+  community: "https://rapidapi.com/community"

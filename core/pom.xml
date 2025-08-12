@@ -9,10 +9,10 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>server</artifactId>
+    <artifactId>core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>rapidapi server</name>
-    <description>Server module</description>
+    <name>rapidapi core</name>
+    <description>Core module</description>
     <packaging>jar</packaging>
 
     <dependencies>

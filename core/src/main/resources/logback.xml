@@ -9,4 +9,7 @@
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
+
+    <logger name="com.myapitutorial" level="INFO" />
+    <logger name="org.eclipse.jetty" level="WARN" />
 </configuration>

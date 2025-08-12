@@ -34,6 +34,6 @@ mvn clean compile -q
 
 # Run the application
 echo "Starting server on port $PORT..."
-mvn exec:java -Dexec.mainClass="com.myapitutorial.server.Main" -q
+mvn exec:java -Dexec.mainClass="com.myapitutorial.core.App" -q
 
 echo "Finished <$0> script"

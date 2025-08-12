@@ -48,8 +48,8 @@
     </properties>
 
     <modules>
-        <module>myapitutorial-server</module>
-        <module>myapitutorial-rest</module>
+        <module>core</module>
+        <module>rest</module>
     </modules>
 
     <repositories>
@@ -260,7 +260,7 @@
                         <skip>true</skip>
                         <executable>mvn</executable>
                         <workingDirectory>${project.build.directory}</workingDirectory>
-                        <mainClass>com.myapitutorial.server.Main</mainClass>
+                        <mainClass>com.myapitutorial.core.App</mainClass>
                         <commandlineArgs>--enable-preview</commandlineArgs>
                         <includePluginDependencies>true</includePluginDependencies>
                         <includeProjectDependencies>true</includeProjectDependencies>
@@ -323,6 +323,7 @@
                             </goals>
                             <configuration>
                                 <failOnWarning>true</failOnWarning>
+                                <failOnError>true</failOnError>
                                 <verbose>true</verbose>
                                 <ignoredDependencies>
                                     org.eclipse.jetty:jetty-alpn-conscrypt-server:jar:*,org.fusesource.jansi:jansi:jar:*,ch.qos.logback:logback-classic:jar:*,org.apache.maven:maven-compat:*,org.apache.maven.resolver:maven-resolver-connector-basic,org.apache.maven.resolver:maven-resolver-transport-wagon,org.apache.maven.wagon:wagon-http-lightweight:*</ignoredDependencies>
@@ -395,7 +396,7 @@
                             <index>true</index>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>com.apitutorial.app.App</mainClass>
+                                <mainClass>com.apitutorial.core.App</mainClass>
                             </manifest>
                         </archive>
                     </configuration>

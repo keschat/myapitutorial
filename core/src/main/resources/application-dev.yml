@@ -1,0 +1,19 @@
+# Development overrides - inherits from application.yml
+server:
+  port: 9090
+  ssl:
+    port: 8443
+    keystore: keystore.p12
+    password: pass123
+
+database:
+  url: jdbc:h2:mem:devdb
+  username: dev
+  password: dev123
+
+logging:
+  level: DEBUG
+
+app:
+  name: "RapidApi Tutorial (DEV)"
+  description: "Development environment for RapidApi Tutorial"

@@ -1,0 +1,17 @@
+# Production overrides - inherits from application.yml
+server:
+  port: 80
+  ssl:
+    port: 443
+    keystore: /etc/ssl/keystore.p12
+    password: ${SSL_PASSWORD}
+
+database:
+  url: ${DATABASE_URL}
+  username: ${DB_USERNAME}
+  password: ${DB_PASSWORD}
+  pool:
+    maxSize: 50  # Override base pool size
+
+app:
+  name: "RapidApi Tutorial (PROD)"
