@@ -1,0 +1,8 @@
+server:
+  keystore:
+    enabled: true
+    path: /opt/myapitutorial/conf/keystore.p12
+    password: pass123
+    type: PKCS12
+    alias: my-alias
+

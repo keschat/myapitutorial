@@ -1,0 +1,11 @@
+# keystore configuration
+# This file contains the configuration for the server's keystore.
+# It is used to secure the server with SSL/TLS.
+server:
+  keystore:
+    enabled: true
+    path: keystore.p12
+    password: pass123
+    type: PKCS12
+    alias: my-alias
+

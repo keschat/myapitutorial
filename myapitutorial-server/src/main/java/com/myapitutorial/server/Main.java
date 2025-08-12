@@ -1,6 +1,8 @@
 package com.myapitutorial.server;
 
+import java.io.InputStream;
 import java.security.Security;
+import java.util.Map;
 import java.util.Optional;
 
 import org.conscrypt.OpenSSLProvider;
@@ -30,6 +32,7 @@ import org.glassfish.hk2.utilities.ServiceLocatorUtilities;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.Yaml;
 
 import com.myapitutorial.rest.ApiApplication;
 
@@ -43,6 +46,30 @@ public class Main {
 
         Security.insertProviderAt(new OpenSSLProvider(), 1);
 
+        // Load environment-specific configuration
+        String environment = Optional.ofNullable(System.getenv("APP_ENV"))
+                .orElse(Optional.ofNullable(System.getProperty("app.env"))
+                .orElse("dev"));
+        
+        String configFile = "application-" + environment + ".yml";
+        logger.info("Loading configuration for environment: {} from {}", environment, configFile);
+        
+        Yaml yaml = new Yaml();
+        InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(configFile);
+        
+        if (inputStream == null) {
+            logger.warn("Configuration file {} not found, falling back to application.yml", configFile);
+            inputStream = Main.class.getClassLoader().getResourceAsStream("application.yml");
+        }
+        
+        Map<String, Object> config = null;
+        if (inputStream != null) {
+            config = yaml.load(inputStream);
+            logger.info("Loaded configuration: {}", config);
+        } else {
+            logger.error("No configuration file found!");
+        }
+        
         ServiceLocator serviceLocator = ServiceLocatorUtilities.createAndPopulateServiceLocator();
         System.out.println(serviceLocator);
 
@@ -52,7 +79,7 @@ public class Main {
 
         int PORT = Optional.ofNullable(System.getProperty("PORT")).map(Integer::parseInt)
                 .orElse(Integer.parseInt(dotenv.get("PORT")));
-        
+
         GracefulHandler gracefulHandler = new GracefulHandler();
         server.setHandler(gracefulHandler);
 
